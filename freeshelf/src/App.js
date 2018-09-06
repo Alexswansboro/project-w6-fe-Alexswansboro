@@ -16,8 +16,7 @@ class App extends Component {
   render () {
     return (
       <div>
-        {this.state.books.map((book, idx) =>
-          <Book key={idx} book={book} />)}
+        {this.state.books.map((book, idx) => <Book key={idx} book={book} />)}
       </div>
     )
   }

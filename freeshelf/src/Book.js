@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './App.css'
 class Book extends Component {
   constructor (props) {
     super()
@@ -10,13 +11,13 @@ class Book extends Component {
     const { book } = this.props
     return (
       <div className='books'>
-        <div id='collapsed-view'>
+        {/* <div id='collapsed-view'> */}
           <a href={book.url} className='title' target='_blank'>{book.title}</a>
           <p className='author'>{book.author}</p>
-          <div className='bookImage'>
-            <img src={book.coverImageUrl} alt='book picture' />
+          <div className='bookImage' />
+          <img src={book.coverImageUrl} alt='book picture' />
           <div className='shortDescription'>{book.shortDescription}</div>
-        </div>
+        {/* </div> */}
         <div id='expanded-view'>
           <a href={book.url} className='url' target='_blank'><strong>URL: </strong>{book.url}</a>
           <div className='publisher'><strong>Publisher: </strong>{book.publisher}</div>
