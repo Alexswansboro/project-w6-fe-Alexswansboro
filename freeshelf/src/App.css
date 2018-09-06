@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+body{
+  margin:2rem;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+.bookImage {
+  float: right;
+  width: 100px;
+ }
+
