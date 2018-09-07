@@ -10,11 +10,11 @@ class App extends Component {
     super()
     this.state = {
       books: [],
-      bookEditing: false
+      bookEditing: null
     }
   }
   componentDidMount () {
-    request.get(' http://localhost:2001/books')
+    request.get('http://localhost:2001/books')
       .then(res => {
         this.setState({
           books: res.body
@@ -22,13 +22,11 @@ class App extends Component {
       })
   }
   editBook (e, book) {
-    console.log(e, 'its here')
-    console.log(book, 'book')
-    this.setState(state => ({ bookEditing: true }))
+    this.setState(state => ({ bookEditing: book }))
   }
   render () {
-    if (this.state.bookEditing === true) {
-      return <Edit />
+    if (this.state.bookEditing) {
+      return <Edit book={this.state.bookEditing} />
     } else {
       return (<div>
         {this.state.books.map((book) => <Book key={book.id} book={book} editBook={this.editBook.bind(this)} />)}

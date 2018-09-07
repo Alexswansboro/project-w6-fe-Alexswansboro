@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import './App.css'
+import './App.js'
 
-class Edit extends Component() {
+class Edit extends Component {
   render () {
-    return (<h1>Hi</h1>)
+    let { book } = this.props
+    return <h1>{console.log(book.title)}</h1>
   }
 }
 export default Edit
