@@ -14,6 +14,9 @@ body{
 }
 .bookImage {
   float: right;
-  width: 100px;
+  width: 70px;
+ }
+ #moreInfo{
+   display:block;
  }
 

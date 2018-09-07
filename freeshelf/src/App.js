@@ -20,8 +20,5 @@ class App extends Component {
     )
   }
 }
-//   bookExpanded (){
-//     <p className=''
-//   }
-// }
+
 export default App
