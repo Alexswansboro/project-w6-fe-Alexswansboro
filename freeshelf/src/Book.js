@@ -8,7 +8,6 @@ class Book extends Component {
       collapsed: false
     }
   }
-  // this checks to see if the cover image link exists and then puts that immage in the place where the method was called.
   image (book) {
     if (book.coverImageUrl) {
       return (<img className='bookImage' src={book.coverImageUrl} alt='book picture' />)
@@ -27,6 +26,7 @@ class Book extends Component {
         <div className='publisher'><strong>Publisher: </strong>{book.publisher}</div>
         <div className='publicationDate'><strong>Publication Date: </strong>{book.publicationDate}</div>
         <div className='detailedDescription'><strong>Description: </strong>{book.detailedDescription} </div>
+        <button className='edit-book' onClick={(e) => { this.props.editBook(e, { book }) }}>Edit Book</button>
       </div>)
     } else {
       return (<button id='lessInfo' onClick={(e) => { this.handleClick(e) }}>More Information</button>)
@@ -46,6 +46,7 @@ class Book extends Component {
         </div>
         {this.bookDetails()}
       </div>
+
     )
   }
 }
