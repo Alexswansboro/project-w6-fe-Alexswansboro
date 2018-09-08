@@ -10,7 +10,7 @@ class Book extends Component {
   }
   image (book) {
     if (book.coverImageUrl) {
-      return (<img className='bookImage' src={book.coverImageUrl} alt='book picture' />)
+      return (<img className='bookImage' src={book.coverImageUrl} alt='book' />)
     }
   }
   handleClick (e) {
@@ -26,7 +26,7 @@ class Book extends Component {
         <div className='publisher'><strong>Publisher: </strong>{book.publisher}</div>
         <div className='publicationDate'><strong>Publication Date: </strong>{book.publicationDate}</div>
         <div className='detailedDescription'><strong>Description: </strong>{book.detailedDescription} </div>
-        <button className='edit-book' onClick={(e) => { this.props.editBook(e, { book }) }}>Edit Book</button>
+        <button className='edit-book' onClick={(e) => { this.props.editBook(e, book) }}>Edit Book</button>
       </div>)
     } else {
       return (<button id='lessInfo' onClick={(e) => { this.handleClick(e) }}>More Information</button>)
