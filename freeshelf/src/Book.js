@@ -26,9 +26,7 @@ class Book extends Component {
         <div className='publisher'><strong>Publisher: </strong>{book.publisher}</div>
         <div className='publicationDate'><strong>Publication Date: </strong>{book.publicationDate}</div>
         <div className='detailedDescription'><strong>Description: </strong>{book.detailedDescription} </div>
-        <button className='edit-book' onClick={(e) => { this.props.editBook(e, { book }) }}>Edit
-          {console.log('in book class', book)}
-        Book</button>
+        <button className='edit-book' onClick={(e) => { this.props.editBook(e, { book }) }}>Edit Book</button>
       </div>)
     } else {
       return (<button id='lessInfo' onClick={(e) => { this.handleClick(e) }}>More Information</button>)
