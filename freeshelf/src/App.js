@@ -23,7 +23,6 @@ class App extends Component {
   }
   updateBookInApi (book) {
     let bookID = book.id
-    console.log('book id', bookID)
     request.put(`http://localhost:4000/books/${bookID}`)
       .send(book)
       .then(res => {
@@ -47,12 +46,24 @@ class App extends Component {
   editBook (e, book) {
     this.setState(state => ({ bookEditing: book }))
   }
+  addBook(){
+    return(<Add>)
+  }
 
   render () {
     if (this.state.bookEditing) {
-      return <Edit book={this.state.bookEditing} updateBook={this.updateBook.bind(this)} />
+      return (
+        <Edit book={this.state.bookEditing} updateBook={this.updateBook.bind(this)} />
+      )
     } else {
       return (<div>
+        <section className='hero level'>
+          <div className='hero-body'>
+            <div className='container'>
+              <div className='fas fa-2x' onClick={(e) => { this.handleClick(e) }}></div><h1 className='main-title title has-text-centered level-item'> Free Shelf </h1>
+            </div>
+          </div>
+        </section>
         {this.state.books.map((book) => <Book key={book.id} book={book} editBook={this.editBook.bind(this)} />)}
       </div>)
     }

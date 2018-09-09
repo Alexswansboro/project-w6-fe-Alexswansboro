@@ -12,11 +12,36 @@ body{
 .App-intro {
   font-size: large;
 }
+.books{
+  border: 2px solid black;
+}
 .bookImage {
-  float: right;
   width: 70px;
  }
  #moreInfo{
    display:block;
  }
+ .media-content{
+    left:75;
+ }
+ .hero-body{
+   padding: 15px;
+ }
+ h1{
+   display:inline-block;
+
+ }
+ .fas{
+  padding-right: 75px;
+ }
+ .container{
+  width: 50%;
+  margin: auto
+ }
+ .main-title{
+   display:inline-block;
+   width:50%;
+   margin:auto
+ }
+
 

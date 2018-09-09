@@ -19,6 +19,7 @@ class Edit extends Component {
         <strong>URL: </strong><input value={book.url} className='input url' target='_blank' onChange={event => { this.props.updateBook(book.id, 'url', event.target.value) }} />
         <strong>Publisher:</strong><input className='publisher' value={book.publisher} onChange={event => { this.props.updateBook(book.id, 'publisher', event.target.value) }} />
         <strong>Publication Date: </strong><input className='publicationDate' value={book.publicationDate} onChange={ event => { this.props.updateBook(book.id, 'publicationDate', event.target.value) }} />
+        <div />
         <strong>Description: </strong>
         <div />
         <textarea type='text' className='input textarea detailedDescription' value={book.detailedDescription} onChange={event => { this.props.updateBook(book.id, 'detailDescription', event.target.value) }} />
