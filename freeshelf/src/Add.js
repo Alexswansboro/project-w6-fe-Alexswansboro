@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './App.js'
+import './App.css'
 
 class Add extends Component {
   constructor () {
@@ -9,12 +9,12 @@ class Add extends Component {
   handleSubmit (event) {
     event.preventDefault()
     const form = event.target
-    console.log('event', event)
+    console.log('event', form)
     if (!event.target.checkValidity()) {
       window.alert('You Are Missing Some Fields')
     }
-    this.props.addBookInApi(form)
-    console.log('form', form)
+    // this.props.addBookInApi(form)
+    // console.log('form', form)
   }
   render () {
     return (
@@ -22,7 +22,7 @@ class Add extends Component {
         <h1 className='add-Title title'>Add A Book</h1>
         <form id='form' noValidate onSubmit={event => { this.handleSubmit(event.target.value) }} >
           <label className='label'>Title
-            <input name='title' required className='input title editTitle' type='text' />
+            <input name='title' required className='input title editTitle' type='text' onBlur={event => { this.props.addBook('title', event.target.value) }} />
           </label>
           <label className='label'>Author
             <input name='author' required className='input title editAuthor' type='text' />

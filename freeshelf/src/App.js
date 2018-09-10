@@ -40,6 +40,15 @@ class App extends Component {
         })
     })
   }
+  addBook (field, value) {
+    this.setState(state => {
+      let abook = state.books
+      abook[field] = value
+      console.log('book', abook, 'value', value)
+    })
+    field = value
+  }
+
   updateBook (bookId, field, newValue) {
     this.setState(state => {
       let book = state.books.find(b => b.id === bookId)
@@ -64,7 +73,7 @@ class App extends Component {
         <Edit book={this.state.bookEditing} updateBook={this.updateBook.bind(this)} />
       )
     } else if (this.state.addBookForm) {
-      return (<Add addBookInApi={this.addBookInApi.bind(this)} />
+      return (<Add addBookInApi={this.addBookInApi.bind(this)} addBook={this.addBook.bind(this)} />
       )
     } else {
       return (
