@@ -4,13 +4,15 @@ import './App.css'
 import Book from './Book'
 import request from 'superagent'
 import Edit from './Edit'
+import Add from './Add'
 
 class App extends Component {
   constructor () {
     super()
     this.state = {
       books: [],
-      bookEditing: null
+      bookEditing: null,
+      addBookForm: false
     }
   }
   componentDidMount () {
@@ -29,7 +31,15 @@ class App extends Component {
 
       })
   }
+  addBookInApi (form) {
+    this.setState(state => {
+      request.post(`http://localhost:4000/books`)
+        .send(form)
+        .then(res => {
 
+        })
+    })
+  }
   updateBook (bookId, field, newValue) {
     this.setState(state => {
       let book = state.books.find(b => b.id === bookId)
@@ -42,30 +52,32 @@ class App extends Component {
       }
     })
   }
-
   editBook (e, book) {
     this.setState(state => ({ bookEditing: book }))
   }
-  addBook(){
-    return(<Add>)
+  addBookForm () {
+    this.setState(state => ({ addBookForm: true }))
   }
-
   render () {
     if (this.state.bookEditing) {
       return (
         <Edit book={this.state.bookEditing} updateBook={this.updateBook.bind(this)} />
       )
+    } else if (this.state.addBookForm) {
+      return (<Add addBookInApi={this.addBookInApi.bind(this)} />
+      )
     } else {
-      return (<div>
-        <section className='hero level'>
-          <div className='hero-body'>
-            <div className='container'>
-              <div className='fas fa-2x' onClick={(e) => { this.handleClick(e) }}></div><h1 className='main-title title has-text-centered level-item'> Free Shelf </h1>
+      return (
+        <div>
+          <section className='hero level'>
+            <div className='hero-body'>
+              <div className='container'>
+                <div className='fas fa-2x' onClick={(e) => { this.addBookForm() }}></div><h1 className='main-title title has-text-centered level-item'> Free Shelf </h1>
+              </div>
             </div>
-          </div>
-        </section>
-        {this.state.books.map((book) => <Book key={book.id} book={book} editBook={this.editBook.bind(this)} />)}
-      </div>)
+          </section>
+          {this.state.books.map((book) => <Book key={book.id} book={book} editBook={this.editBook.bind(this)} />)}
+        </div>)
     }
   }
 }

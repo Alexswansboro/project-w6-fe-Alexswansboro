@@ -18,7 +18,7 @@ class Edit extends Component {
         <textarea className='input shortDescription' type='text' value={book.shortDescription} onChange={event => { this.props.updateBook(book.id, 'shortDescription', event.target.value) }} />
         <strong>URL: </strong><input value={book.url} className='input url' target='_blank' onChange={event => { this.props.updateBook(book.id, 'url', event.target.value) }} />
         <strong>Publisher:</strong><input className='publisher' value={book.publisher} onChange={event => { this.props.updateBook(book.id, 'publisher', event.target.value) }} />
-        <strong>Publication Date: </strong><input className='publicationDate' value={book.publicationDate} onChange={ event => { this.props.updateBook(book.id, 'publicationDate', event.target.value) }} />
+        <strong>Publication Date: </strong><input className='publicationDate' value={book.publicationDate} onChange={event => { this.props.updateBook(book.id, 'publicationDate', event.target.value) }} />
         <div />
         <strong>Description: </strong>
         <div />

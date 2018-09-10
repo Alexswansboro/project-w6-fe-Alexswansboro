@@ -32,7 +32,9 @@ body{
 
  }
  .fas{
-  padding-right: 75px;
+  position: fixed;
+  top: 1em;
+  left: 1em;
  }
  .container{
   width: 50%;
